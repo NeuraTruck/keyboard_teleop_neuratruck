@@ -42,7 +42,8 @@ class KeyboardTeleop(Node):
         self.timeout = 0.1
         self.speed = 0.5
         self.turn = 0.5
-
+        self.settings = termios.tcgetattr(sys.stdin)
+        
     def getKey(self):
         tty.setraw(sys.stdin.fileno())
         rlist, _, _ = select.select([sys.stdin], [], [], 0.1)
@@ -50,7 +51,7 @@ class KeyboardTeleop(Node):
             key = sys.stdin.read(1)
         else:
             key = ''
-        termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
+        termios.tcsetattr(sys.stdin, termios.TCSADRAIN, self.settings)
         return key
 
     def run(self):
@@ -59,8 +60,7 @@ class KeyboardTeleop(Node):
             while True:
                 key = self.getKey()
                 if key in moveBindings.keys():
-                    x = moveBindings[key][0]
-                    th = moveBindings[key][1]
+                    x, th = moveBindings[key]
                     twist = Twist()
                     twist.linear.x = x * self.speed
                     twist.angular.z = th * self.turn
@@ -81,12 +81,10 @@ class KeyboardTeleop(Node):
 def main(args=None):
     rclpy.init(args=args)
     keyboard_teleop = KeyboardTeleop()
-    settings = termios.tcgetattr(sys.stdin)
 
     try:
         keyboard_teleop.run()
     finally:
-        termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
         keyboard_teleop.destroy_node()
         rclpy.shutdown()
 
