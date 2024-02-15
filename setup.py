@@ -1,4 +1,5 @@
 from setuptools import find_packages, setup
+import os
 
 package_name = 'keyboard_teleop'
 
@@ -11,6 +12,7 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/launch', ['launch/keyboard_teleop.launch.py']),
+        (os.path.join('share', package_name, 'model', 'mini-rover'), ['model/mini-rover/model.sdf']),        
     ],
     install_requires=['setuptools'],
     zip_safe=True,

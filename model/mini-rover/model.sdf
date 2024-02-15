@@ -1,7 +1,8 @@
 <?xml version='1.0'?>
-<sdf version='1.7'>
-  <model name='truck01'>
-    <link name='link'>
+<sdf version='1.6'>
+  <model name='mini-rover'>
+    <link name='link_0'>
+      <pose frame=''>-0.002 0 0.008006 0 -0 0</pose>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -12,43 +13,42 @@
           <iyz>0</iyz>
           <izz>0.166667</izz>
         </inertia>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
-      <self_collide>0</self_collide>
-      <enable_wind>0</enable_wind>
-      <kinematic>0</kinematic>
-      <pose>0 -0 0.01 0 -0 0</pose>
       <gravity>1</gravity>
+      <self_collide>0</self_collide>
+      <kinematic>0</kinematic>
       <visual name='visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.4 0.54 0.11</size>
+            <size>0.25 0.5 0.15</size>
           </box>
         </geometry>
         <material>
+          <lighting>1</lighting>
           <script>
-            <name>Gazebo/Grey</name>
             <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
           </script>
-          <shader type='pixel'>
-            <normal_map>__default__</normal_map>
-          </shader>
           <ambient>0.3 0.3 0.3 1</ambient>
           <diffuse>0.7 0.7 0.7 1</diffuse>
           <specular>0.01 0.01 0.01 1</specular>
           <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
         </material>
-        <pose>0 0 0 0 -0 0</pose>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
       </visual>
       <collision name='collision'>
         <laser_retro>0</laser_retro>
         <max_contacts>10</max_contacts>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.4 0.54 0.11</size>
+            <size>0.25 0.5 0.15</size>
           </box>
         </geometry>
         <surface>
@@ -98,30 +98,8 @@
         </surface>
       </collision>
     </link>
-    
-    <plugin name="gazebo_ros_diff_drive" filename="libgazebo_ros_diff_drive.so">
-      <ros>
-        <!-- ROSパラメーターの設定 -->
-        <namespace>/</namespace>
-        <remapping>cmd_vel:=cmd_vel</remapping>
-      </ros>
-      <legacy_mode>false</legacy_mode>
-      <publish_odom>true</publish_odom>
-      <publish_odom_tf>true</publish_odom_tf>
-      <odometry_frame>odom</odometry_frame>
-      <odometry_topic>odom</odometry_topic>
-      <robot_base_frame>base_footprint</robot_base_frame>
-      <!-- 車輪の間隔と直径 -->
-      <wheel_separation>0.5</wheel_separation>
-      <wheel_diameter>0.15</wheel_diameter>
-      <!-- モータの最大トルク -->
-      <torque>15</torque>
-      <command_timeout>0.5</command_timeout>
-      <publish_wheel_tf>true</publish_wheel_tf>
-      <publish_wheel_joint_state>true</publish_wheel_joint_state>
-    </plugin>
-        
-    <link name='link_0'>
+    <link name='link_1'>
+      <pose frame=''>0.178014 0.2 -0.002008 0 1.5707 0</pose>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -132,19 +110,17 @@
           <iyz>0</iyz>
           <izz>0.125</izz>
         </inertia>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
-      <pose>-0.22 0.21 0 1.5707 0 1.5707</pose>
       <gravity>1</gravity>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
-      <enable_wind>0</enable_wind>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
-            <length>0.03</length>
+            <radius>0.15</radius>
+            <length>0.1</length>
           </cylinder>
         </geometry>
         <material>
@@ -153,13 +129,13 @@
             <uri>file://media/materials/scripts/gazebo.material</uri>
             <name>Gazebo/Grey</name>
           </script>
-          <shader type='pixel'>
-            <normal_map>__default__</normal_map>
-          </shader>
           <ambient>0.3 0.3 0.3 1</ambient>
           <diffuse>0.7 0.7 0.7 1</diffuse>
           <specular>0.01 0.01 0.01 1</specular>
           <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
@@ -167,11 +143,11 @@
       <collision name='collision'>
         <laser_retro>0</laser_retro>
         <max_contacts>10</max_contacts>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
-            <length>0.03</length>
+            <radius>0.15</radius>
+            <length>0.1</length>
           </cylinder>
         </geometry>
         <surface>
@@ -221,7 +197,8 @@
         </surface>
       </collision>
     </link>
-    <link name='link_0_clone'>
+    <link name='link_1_clone'>
+      <pose frame=''>-0.177014 0.2 -0.001999 0 1.5707 0</pose>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -232,19 +209,16 @@
           <iyz>0</iyz>
           <izz>0.125</izz>
         </inertia>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
-      <pose>-0.22 -0.21 -0 1.5707 0 1.5707</pose>
-      <gravity>1</gravity>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
-      <enable_wind>0</enable_wind>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
-            <length>0.03</length>
+            <radius>0.15</radius>
+            <length>0.1</length>
           </cylinder>
         </geometry>
         <material>
@@ -253,13 +227,13 @@
             <uri>file://media/materials/scripts/gazebo.material</uri>
             <name>Gazebo/Grey</name>
           </script>
-          <shader type='pixel'>
-            <normal_map>__default__</normal_map>
-          </shader>
           <ambient>0.3 0.3 0.3 1</ambient>
           <diffuse>0.7 0.7 0.7 1</diffuse>
           <specular>0.01 0.01 0.01 1</specular>
           <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
@@ -267,11 +241,11 @@
       <collision name='collision'>
         <laser_retro>0</laser_retro>
         <max_contacts>10</max_contacts>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
-            <length>0.03</length>
+            <radius>0.15</radius>
+            <length>0.1</length>
           </cylinder>
         </geometry>
         <surface>
@@ -321,7 +295,8 @@
         </surface>
       </collision>
     </link>
-    <link name='link_0_clone_0'>
+    <link name='link_1_clone_0'>
+      <pose frame=''>0.178014 -0.2 -0.001999 0 1.5707 0</pose>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -332,19 +307,17 @@
           <iyz>0</iyz>
           <izz>0.125</izz>
         </inertia>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
-      <pose>0.22 0.21 0 1.5707 0 1.5707</pose>
-      <gravity>1</gravity>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
-      <enable_wind>0</enable_wind>
+      <gravity>1</gravity>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
-            <length>0.03</length>
+            <radius>0.15</radius>
+            <length>0.1</length>
           </cylinder>
         </geometry>
         <material>
@@ -353,13 +326,13 @@
             <uri>file://media/materials/scripts/gazebo.material</uri>
             <name>Gazebo/Grey</name>
           </script>
-          <shader type='pixel'>
-            <normal_map>__default__</normal_map>
-          </shader>
           <ambient>0.3 0.3 0.3 1</ambient>
           <diffuse>0.7 0.7 0.7 1</diffuse>
           <specular>0.01 0.01 0.01 1</specular>
           <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
@@ -367,11 +340,11 @@
       <collision name='collision'>
         <laser_retro>0</laser_retro>
         <max_contacts>10</max_contacts>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
-            <length>0.03</length>
+            <radius>0.15</radius>
+            <length>0.1</length>
           </cylinder>
         </geometry>
         <surface>
@@ -421,7 +394,8 @@
         </surface>
       </collision>
     </link>
-    <link name='link_0_clone_clone'>
+    <link name='link_1_clone_1'>
+      <pose frame=''>-0.177014 -0.2 -0.001999 0 1.5707 0</pose>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -432,19 +406,16 @@
           <iyz>0</iyz>
           <izz>0.125</izz>
         </inertia>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
       </inertial>
-      <pose>0.22 -0.21 -0 1.5707 0 1.5707</pose>
-      <gravity>1</gravity>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
-      <enable_wind>0</enable_wind>
       <visual name='visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
-            <length>0.03</length>
+            <radius>0.15</radius>
+            <length>0.1</length>
           </cylinder>
         </geometry>
         <material>
@@ -453,13 +424,13 @@
             <uri>file://media/materials/scripts/gazebo.material</uri>
             <name>Gazebo/Grey</name>
           </script>
-          <shader type='pixel'>
-            <normal_map>__default__</normal_map>
-          </shader>
           <ambient>0.3 0.3 0.3 1</ambient>
           <diffuse>0.7 0.7 0.7 1</diffuse>
           <specular>0.01 0.01 0.01 1</specular>
           <emissive>0 0 0 1</emissive>
+          <shader type='vertex'>
+            <normal_map>__default__</normal_map>
+          </shader>
         </material>
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
@@ -467,11 +438,11 @@
       <collision name='collision'>
         <laser_retro>0</laser_retro>
         <max_contacts>10</max_contacts>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <geometry>
           <cylinder>
-            <radius>0.05</radius>
-            <length>0.03</length>
+            <radius>0.15</radius>
+            <length>0.1</length>
           </cylinder>
         </geometry>
         <surface>
@@ -521,12 +492,13 @@
         </surface>
       </collision>
     </link>
-    <joint name='link_JOINT_0' type='revolute'>
-      <parent>link</parent>
-      <child>link_0</child>
-      <pose>0 0 0 0 -0 0</pose>
+    <joint name='link_0_JOINT_0' type='revolute'>
+      <parent>link_0</parent>
+      <child>link_1</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
       <axis>
         <xyz>-0 -0 -1</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
         <limit>
           <lower>-1.79769e+308</lower>
           <upper>1.79769e+308</upper>
@@ -552,12 +524,13 @@
         </ode>
       </physics>
     </joint>
-    <joint name='link_JOINT_1' type='revolute'>
-      <parent>link</parent>
-      <child>link_0_clone</child>
-      <pose>0 0 0 0 -0 0</pose>
+    <joint name='link_0_JOINT_1' type='revolute'>
+      <parent>link_0</parent>
+      <child>link_1_clone_0</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
       <axis>
         <xyz>-0 -0 -1</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
         <limit>
           <lower>-1.79769e+308</lower>
           <upper>1.79769e+308</upper>
@@ -583,12 +556,13 @@
         </ode>
       </physics>
     </joint>
-    <joint name='link_JOINT_2' type='revolute'>
-      <parent>link</parent>
-      <child>link_0_clone_0</child>
-      <pose>0 0 0 0 -0 0</pose>
+    <joint name='link_0_JOINT_2' type='revolute'>
+      <parent>link_0</parent>
+      <child>link_1</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
       <axis>
-        <xyz>0 0 1</xyz>
+        <xyz>1 0 0</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
         <limit>
           <lower>-1.79769e+308</lower>
           <upper>1.79769e+308</upper>
@@ -614,12 +588,109 @@
         </ode>
       </physics>
     </joint>
-    <joint name='link_JOINT_3' type='revolute'>
-      <parent>link</parent>
-      <child>link_0_clone_clone</child>
-      <pose>0 0 0 0 -0 0</pose>
+    <joint name='link_0_JOINT_3' type='revolute'>
+      <parent>link_0</parent>
+      <child>link_1_clone_1</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
+        <limit>
+          <lower>-1.79769e+308</lower>
+          <upper>1.79769e+308</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+          <suspension>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </suspension>
+        </ode>
+      </physics>
+    </joint>
+    <joint name='link_0_JOINT_4' type='revolute'>
+      <parent>link_0</parent>
+      <child>link_1_clone_0</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
+        <limit>
+          <lower>-1.79769e+308</lower>
+          <upper>1.79769e+308</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+          <suspension>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </suspension>
+        </ode>
+      </physics>
+    </joint>
+    <joint name='link_0_JOINT_5' type='revolute'>
+      <parent>link_0</parent>
+      <child>link_1</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
+        <limit>
+          <lower>-1.79769e+308</lower>
+          <upper>1.79769e+308</upper>
+          <effort>-1</effort>
+          <velocity>-1</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+          <suspension>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </suspension>
+        </ode>
+      </physics>
+    </joint>
+    <joint name='link_0_JOINT_6' type='revolute'>
+      <parent>link_0</parent>
+      <child>link_1_clone</child>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <use_parent_model_frame>0</use_parent_model_frame>
         <limit>
           <lower>-1.79769e+308</lower>
           <upper>1.79769e+308</upper>
