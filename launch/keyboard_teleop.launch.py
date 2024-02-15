@@ -31,7 +31,7 @@ def generate_launch_description():
 #                PythonLaunchDescriptionSource(gzclient_launch_path),
 #            )
 
-    sdf_file_path = os.path.join(get_package_share_directory('keyboard_teleop'), 'model', 'truck01', 'model.sdf')
+    urdf_file_path = os.path.join(get_package_share_directory('keyboard_teleop'), 'urdf', 'my_robot.urdf')
     
     # Gazeboを直接起動するコマンドを構築
     gazebo_cmd = ExecuteProcess(
@@ -48,7 +48,7 @@ def generate_launch_description():
     # 自律搬送車両モデルを配置するノード
     spawn_entity = Node(
             package='gazebo_ros', executable='spawn_entity.py',
-            arguments=['-entity', 'truck01', '-file', sdf_file_path],
+            arguments=['-entity', 'my_robot', '-file', urdf_file_path],
             output='screen'
     )
 
