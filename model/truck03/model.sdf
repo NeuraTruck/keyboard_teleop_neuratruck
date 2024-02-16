@@ -106,8 +106,8 @@
         <namespace>/</namespace>
         <remapping>cmd_vel:=cmd_vel</remapping>
       </ros>
-      <left_joint>link_0_JOINT_0</left_joint>
-      <right_joint>link_0_JOINT_1</right_joint>
+      <left_joint>link_0_JOINT_1</left_joint>
+      <right_joint>link_0_JOINT_0</right_joint>
       <legacy_mode>false</legacy_mode>
       <publish_odom>true</publish_odom>
       <publish_odom_tf>true</publish_odom_tf>
@@ -620,5 +620,50 @@
     </joint>
     <static>0</static>
     <allow_auto_disable>1</allow_auto_disable>
+    
+  <!--     <link name="camera_link">
+  <pose>0 0.3 0.1 0 0 0</pose> 
+  <inertial>
+    <mass>0.1</mass>
+    <inertia>
+      <ixx>0.0001</ixx>
+      <ixy>0</ixy>
+      <ixz>0</ixz>
+      <iyy>0.0001</iyy>
+      <iyz>0</iyz>
+      <izz>0.0001</izz>
+    </inertia>
+  </inertial>
+  
+Realsense D455 カメラセンサー
+  <sensor name="realsense_d455" type="camera">
+    <camera>
+      <horizontal_fov>1.3962634</horizontal_fov>約80度の視野
+      <image>
+        <width>1280</width>
+        <height>720</height>
+        <format>R8G8B8</format>
+      </image>
+      <clip>
+        <near>0.01</near>
+        <far>10</far>
+      </clip>
+    </camera>
+    <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+
+      <ros>
+        <namespace>/camera</namespace>
+        <argument>image_raw:=/camera/image_raw</argument>
+      </ros>
+    </plugin>
+  </sensor>
+</link>
+
+<joint name="camera_to_chassis_joint" type="fixed">
+  <parent link="link_0"/>
+  <child link="camera_link"/>
+  <origin xyz="0.2 0 0.5" rpy="0 0 0"/>
+</joint>
+ -->
   </model>
 </sdf>
