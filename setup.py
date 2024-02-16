@@ -12,7 +12,7 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/launch', ['launch/keyboard_teleop.launch.py']),
-        ('share/' + package_name + '/urdf', ['urdf/my_robot.urdf']),        
+        (os.path.join('share', package_name, 'model', 'truck03'), ['model/truck03/model.sdf']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

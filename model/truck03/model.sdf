@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <sdf version='1.7'>
-  <model name='truck02'>
+  <model name='truck03Ｔ'>
     <link name='link_0'>
       <inertial>
         <mass>1</mass>
@@ -14,7 +14,7 @@
         </inertia>
         <pose>0 0 0 0 -0 0</pose>
       </inertial>
-      <pose>0.068003 0 0.008 0 -0 0</pose>
+      <pose>0 0 0.008 0 -0 0</pose>
       <gravity>1</gravity>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
@@ -126,9 +126,9 @@
       <publish_wheel_joint_state>true</publish_wheel_joint_state>
     </plugin>
 
-    <link name='link_1'>
+    <link name='link_5'>
       <inertial>
-        <mass>1</mass>
+        <mass>7</mass>
         <inertia>
           <ixx>0.1</ixx>
           <ixy>0</ixy>
@@ -139,7 +139,7 @@
         </inertia>
         <pose>0 0 0 0 -0 0</pose>
       </inertial>
-      <pose>0.068003 -0.15 -0.002 0 -0 0</pose>
+      <pose>0 0.15 -0.002 0 -0 0</pose>
       <gravity>1</gravity>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
@@ -224,9 +224,9 @@
         </surface>
       </collision>
     </link>
-    <link name='link_1_clone'>
+    <link name='link_5_clone'>
       <inertial>
-        <mass>1</mass>
+        <mass>7</mass>
         <inertia>
           <ixx>0.1</ixx>
           <ixy>0</ixy>
@@ -237,7 +237,7 @@
         </inertia>
         <pose>0 0 0 0 -0 0</pose>
       </inertial>
-      <pose>0.068003 0.15 -0.002 0 -0 0</pose>
+      <pose>0 -0.15 -0.002 0 -0 0</pose>
       <gravity>1</gravity>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
@@ -322,7 +322,7 @@
         </surface>
       </collision>
     </link>
-    <link name='link_2'>
+    <link name='link_6'>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -335,7 +335,7 @@
         </inertia>
         <pose>0 0 0 0 -0 0</pose>
       </inertial>
-      <pose>-0.146997 0 0.008 0 1.5707 0</pose>
+      <pose>0.215 0 -0.002 0 1.5707 0</pose>
       <gravity>1</gravity>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
@@ -422,7 +422,7 @@
         </surface>
       </collision>
     </link>
-    <link name='link_2_clone'>
+    <link name='link_6_clone'>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -435,7 +435,7 @@
         </inertia>
         <pose>0 0 0 0 -0 0</pose>
       </inertial>
-      <pose>0.283003 0 0.008 0 1.5707 0</pose>
+      <pose>-0.215 0 -0.002 0 1.5707 0</pose>
       <gravity>1</gravity>
       <self_collide>0</self_collide>
       <kinematic>0</kinematic>
@@ -524,7 +524,7 @@
     </link>
     <joint name='link_0_JOINT_0' type='revolute'>
       <parent>link_0</parent>
-      <child>link_2</child>
+      <child>link_6_clone</child>
       <pose>0 0 0 0 -0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
@@ -555,7 +555,7 @@
     </joint>
     <joint name='link_0_JOINT_1' type='revolute'>
       <parent>link_0</parent>
-      <child>link_2_clone</child>
+      <child>link_6</child>
       <pose>0 0 0 0 -0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
@@ -571,6 +571,40 @@
           <damping>0</damping>
         </dynamics>
       </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+          <suspension>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </suspension>
+        </ode>
+      </physics>
+    </joint>
+    <joint name='link_0_JOINT_2' type='ball'>
+      <parent>link_0</parent>
+      <child>link_5</child>
+      <pose>0 0 0 0 -0 0</pose>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+          <suspension>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </suspension>
+        </ode>
+      </physics>
+    </joint>
+    <joint name='link_0_JOINT_3' type='ball'>
+      <parent>link_0</parent>
+      <child>link_5_clone</child>
+      <pose>0 0 0 0 -0 0</pose>
       <physics>
         <ode>
           <limit>
