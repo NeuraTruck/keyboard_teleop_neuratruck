@@ -622,7 +622,7 @@
     <allow_auto_disable>1</allow_auto_disable>
 
     <link name="realsense_link">
-      <pose>0 0 0.25 0 0 0</pose>
+      <pose>0 0.3 0.1 0 0 1.57</pose>
       <visual name="realsense_link_visual">
         <pose>0 0 0 -1.57 0 -1.57</pose>
         <geometry>
@@ -742,7 +742,7 @@
     </link>
 
     <joint name="realsense_joint" type="fixed">
-      <parent>link0</parent>
+      <parent>link_0</parent>
       <child>realsense_link</child>
       <pose>0.4 0 0.4 -1.57 0 -1.57</pose>
     </joint>
