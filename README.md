@@ -1,5 +1,10 @@
 # This is a ROS2 package for NeuraTruck GAZEBO simulation
 
+## Environment setting
+```bash 
+export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:~/neuratruck_ws/src/keyboard_teleop/model
+```
+
 * Terminal 1
 ```bash
 mkdir -p neuratruck_ws/src && cd neuratruck_ws/src
