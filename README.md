@@ -5,13 +5,20 @@
 export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:~/neuratruck_ws/src/keyboard_teleop/model
 ```
 
-* Terminal 1
+## How to install
+
 ```bash
 mkdir -p neuratruck_ws/src && cd neuratruck_ws/src
 git clone https://github.com/tstaisyu/keyboard_teleop_neuratruck.git
 cd ..
 colcon build
 source install/setup.bash
+```
+
+## Start simulation
+
+* Terminal 1
+```bash
 ros2 launch keyboard_teleop keyboard_teleop.launch.py
 ```
 
