@@ -2,7 +2,8 @@
 
 ## Environment setting
 ```bash 
-export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:~/neuratruck_ws/src/keyboard_teleop/model
+export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:~/neuratruck_ws/src/keyboard_teleop_neuratruck/model
+export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:~/neuratruck_ws/src/keyboard_teleop_neuratruck/meshes
 ```
 
 ## How to install
